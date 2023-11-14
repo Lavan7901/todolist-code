@@ -1,0 +1,95 @@
+.App {
+    font-family: "Didact Gothic";
+    text-align: center;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #4bbd95,#379167eb); 
+  }
+  
+  .container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .todolist{
+    margin: auto;
+    background-color: #12343b;
+    border-radius: 10px;
+    width: 40%;
+    min-height: 80vh;
+  }
+  .todoform{
+    display: flex;
+    flex-direction: column;
+  }
+  .container h2{
+    margin-top: 50px;
+    color: #ffffff;
+  }
+  .field-items input{
+    margin: 0.5rem;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #d4d0d0;
+    color: black;
+    font-size: 16px;
+    border: 1px solid #ccc;
+  }
+  .field-items button{
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #c89666;
+    color: black;
+    font-size: 16px;
+    font-weight: 700;
+    border: 1px solid #ccc;
+  }
+   .list-items li{
+    color: white;
+    display: flex;
+    list-style-type: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: auto;
+    font-size: 18px;
+    margin-top: 20px;
+    width: 65%;
+  }
+  .list-items input{
+    width:75%;
+    background-color: #12343b;
+    padding: 5px;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    border: none;
+    outline: none;
+  }
+  .lists {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+  }
+  .field-icons {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+  }
+  
+ @media (max-width: 600px) {
+    .todolist{
+        width: 100%;
+      }
+
+  }
+  @media (max-width: 1012px) {
+    .todolist{
+        width: 100%;
+      }
+  }
+    
