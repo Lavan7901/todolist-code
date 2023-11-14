@@ -42,7 +42,7 @@ function Todolist() {
   
       if (value.trim() !== "") {
         const lowercaseValue = value.toLowerCase();
-        const isDuplicate = todos.some((todo) => todo.text.toLowerCase() === lowercaseValue);
+        const isDuplicate = todos.find((todo) => todo.text.toLowerCase() === lowercaseValue);
   
         if (!isDuplicate) {
           if (editingId !== null) {
