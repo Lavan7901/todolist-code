@@ -83,13 +83,13 @@
   
  @media (max-width: 600px) {
     .todolist{
-        width: 100%;
+        width: 80%;
       }
 
   }
   @media (max-width: 1012px) {
     .todolist{
-        width: 100%;
+        width: 80%;
       }
   }
     

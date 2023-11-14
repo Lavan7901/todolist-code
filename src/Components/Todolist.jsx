@@ -1,4 +1,4 @@
-
+/*
 import React, { useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin5Fill } from "react-icons/ri";
@@ -18,12 +18,50 @@ function Todolist() {
         setTodos(updatedTodos);
         setEditingId(null);
       } else {
+       const isDuplicate = todos.some((todo) => todo.text === value);
+      if (!isDuplicate) {
         setTodos([...todos, { text: value, id: Date.now() }]);
       }
+    }
       setValue("");
     }
   };
-
+ */
+  import React, { useState } from "react";
+  import { FaEdit } from "react-icons/fa";
+  import { RiDeleteBin5Fill } from "react-icons/ri";
+  
+  function Todolist() {
+    const [value, setValue] = useState("");
+    const [todos, setTodos] = useState([]);
+    const [editingId, setEditingId] = useState(null);
+    const [error, setError] = useState(null);
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+  
+      if (value.trim() !== "") {
+        const lowercaseValue = value.toLowerCase();
+        const isDuplicate = todos.some((todo) => todo.text.toLowerCase() === lowercaseValue);
+  
+        if (!isDuplicate) {
+          if (editingId !== null) {
+            const updatedTodos = todos.map((todo) =>
+              todo.id === editingId ? { ...todo, text: value } : todo
+            );
+            setTodos(updatedTodos);
+            setEditingId(null);
+          } else {
+            setTodos([...todos, { text: value, id: Date.now() }]);
+          }
+          setValue("");
+          setError(null);
+        } else {
+          setError("Already exists!");
+        }
+      }
+    };
+  
   const handleInputChange = (e) => {
     const value = e.target.value;
     setValue(value);
@@ -54,6 +92,7 @@ function Todolist() {
               />
               <button type="submit">{editingId !== null ? "Update" : "Add"}</button>
             </div>
+            {error && <div style={{ color: "red" ,fontSize: "18px"}}>{error}</div>}
           </form>
           <div className="list-items">
             {todos.map((todo) => (
